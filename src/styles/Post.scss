@@ -1,0 +1,77 @@
+.post-page {
+  max-width: 60rem;
+  margin: 0rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .post-header {
+    margin-top: 9rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h3,
+    a {
+      text-decoration: none;
+      color: var(--color-dark);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5rem;
+      line-height: 116%;
+    }
+  }
+  .post-content {
+    width: 100%;
+    margin-bottom: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    p {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+  .line {
+    margin-bottom: 2rem;
+  }
+  .comments-container {
+    margin-bottom: 4rem;
+    background-color: var(--color-background);
+    width: 100%;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    header {
+      padding: 1.5rem 2rem;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      h3 {
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      select {
+        background-color: var(--color-background);
+        border: none;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
