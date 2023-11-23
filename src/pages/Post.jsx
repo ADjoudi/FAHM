@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 function Post() {
   const [token, setToken] = useState(localStorage.getItem("token"));
-  const [error, setError] = useState(null);
   const [post, setPost] = useState();
   const [user, setUser] = useState(null);
   const { post_id } = useParams();
@@ -51,26 +50,19 @@ function Post() {
         if (!response.ok) {
           throw new Error(`HTTP error: with status ${response.status}`);
         }
-        const data = await response.json();
-        console.log(data);
-        setUser(data.user);
-        setError(null);
+        const user = await response.json();
+        setUser(user);
       } catch (err) {
-        setError(err);
+        throw new Error(err);
       }
-      return () => {
-        setToken(null);
-      };
     }
     getPost();
-    if (token) {
-      getUser();
-    }
+    if (!token) return;
+    getUser();
+    return () => {
+      setToken(null);
+    };
   }, [post_id, token]);
-
-  useEffect(() => {
-    console.error("errors: ", error);
-  }, [error]);
 
   return (
     <div className="post-page">

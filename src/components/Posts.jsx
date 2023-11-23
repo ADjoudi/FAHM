@@ -1,12 +1,12 @@
 import "../styles/Posts.scss";
 import open from "../assets/open.svg";
 
-function Posts({ user, handlePostClick }) {
+function Posts({ posts, handlePostClick }) {
   return (
     <div className="posts">
       <h1>LATEST</h1>
-      {user &&
-        user.posts.map((post) => (
+      {posts &&
+        posts.map((post) => (
           <div
             key={post._id}
             id={post._id}

@@ -8,8 +8,8 @@ export default function AddPost() {
   const [tab, setTab] = useState("edit");
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [post, setPost] = useState({
-    title: { id: "post_title", tag: "h1", content: "" },
-    content: [{ id: "default", tag: "p", content: "" }],
+    title: "",
+    content: "",
   });
   const navigate = useNavigate();
   const tabs = [
@@ -22,7 +22,7 @@ export default function AddPost() {
   }
   async function savePost(e) {
     const newPost = {
-      title: post.title.content,
+      title: post.title,
       content: post.content,
       author: user.id,
       comments: [],
@@ -83,6 +83,9 @@ export default function AddPost() {
       }
     }
     if (token) getUser();
+    return () => {
+      setToken(null);
+    };
   }, [token, navigate]);
   return (
     <div className="add-post-page">
